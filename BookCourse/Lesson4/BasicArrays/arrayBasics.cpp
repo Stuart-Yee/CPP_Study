@@ -20,13 +20,17 @@ int main () {
 
     // That I know of, there's no handy .length or .length() for arrays in C++
 
-    char myString[] = {'p', 'i', 'c', 'k', 'l', 'e'}; // Strings were originally arrays of chars
+    char myString[] = {'p', 'i', 'c', 'k', 'l', 'e', '\0'}; // Strings were originally arrays of chars
 
     int arrSize = sizeof(myString)/sizeof(myString[0]);
 
-    for (int c=0; c<arrSize; c++) {
-        std::cout << myString[c];     // C++ does have a String class, but I think this was the old school way
-    }
+    // for (int c=0; c<arrSize; c++) {
+    //     std::cout << myString[c];     // C++ does have a String class, but I think this was the old school way
+    // }
+
+    std::cout << myString << std::endl;
+
+    std::cout << "The above string is " << arrSize-1 << " characters long and " << sizeof(myString) << " bytes";
 
     std::cout << "\nprogram complete" << std::endl;
 
