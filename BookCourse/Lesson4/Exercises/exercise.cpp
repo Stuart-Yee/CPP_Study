@@ -28,7 +28,7 @@ int main() {
     board[0][7] = blackBishop;
     board[1][0] = blackPawn;
     board[1][1] = blackPawn;
-
+    board[1][2] = blackPawn;
     // And so on...
 
     std::cout << board[0][0];
