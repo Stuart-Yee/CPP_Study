@@ -11,4 +11,6 @@ int main() {
     intPointer = &age; // assign the memory location for age to the intPointer
 
     cout << "My pointer is pointing to " << intPointer << endl;
+
+    cout << "The value at " << intPointer << " is " << *intPointer <<endl;
 }
