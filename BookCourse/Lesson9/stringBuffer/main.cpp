@@ -4,7 +4,7 @@ using namespace std;
 class MyString
 {
 private:
-    char *buffer;
+    char *buffer; // Char pointer.
 
 public:
     MyString(const char *initString) // constructor
