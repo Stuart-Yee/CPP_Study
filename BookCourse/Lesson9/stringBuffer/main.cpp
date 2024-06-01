@@ -18,7 +18,7 @@ public:
             buffer = NULL;
     }
 
-    ~MyString()
+    ~MyString() // Destructor. Code every day, commit everyday (or just comment every day)
     {
         cout << "Invoking destructor, clearing up" << endl;
         if (buffer != NULL)
