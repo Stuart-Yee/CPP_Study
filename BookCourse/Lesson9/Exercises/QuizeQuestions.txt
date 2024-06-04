@@ -1,0 +1,6 @@
+1. new creates new classes in the Heap rather than the Stack
+2. No it does not
+3. Any member function of the class
+4. Yes
+5. A constructor is good for anything you want when instantiating a new class
+6. A destructor frees up memory
