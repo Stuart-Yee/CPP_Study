@@ -17,6 +17,7 @@ class User {
 
 
     public:
+        User() {}
         User (string inputUsername, string inputPassword)
             : username(inputUsername), password(inputPassword) {
                 userId = genUserId();
@@ -52,10 +53,45 @@ class User {
         }
 };
 
-class Superuser:public User {};
+class Superuser:public User {
 
-int main(int argc, char argv[]){
+    private:
+        User * loggedInAs;
+
+    public:
+        Superuser(string inputUsername, string inputPassword) {
+            username = inputUsername;
+            password = inputPassword;
+        }
+
+        void forceResetPassword(User &user, string newPassword) {
+            user.resetPassword(newPassword);
+        }
+
+        void loginAs(User &user) {
+            loggedInAs = &user;
+        }
+
+        void stopLoginAs() {
+            delete loggedInAs;
+        }
+};
+
+int main(int argc, char* argv[]){
+
+    User bobby = User("bobby123", "123456");
+    cout << "Created user " << bobby.getUsername() << endl;
+
+    string adminName;
+    string adminPassword;
+    cout << "\nCongrats, you're the admin!\nPlease enter a username:" << endl;
+    cin >> adminName;
+    cout << "Now come up with a secure password:" << endl;
+    cin >> adminPassword;
+    Superuser admin = Superuser(adminName, adminPassword);
+    cout << "Nice job, " << admin.getUsername() << "! You are now the admin." <<endl;
 
 
+    return 0;
 
 }
