@@ -90,6 +90,31 @@ int main(int argc, char* argv[]){
     cin >> adminPassword;
     Superuser admin = Superuser(adminName, adminPassword);
     cout << "Nice job, " << admin.getUsername() << "! You are now the admin." <<endl;
+    cout << "\nUnfortunately " << bobby.getUsername() << " is an idiot. They forgot their password" << endl;
+
+    bool loggedIn = false;
+
+    for (int i = 0; i < 3; i++) {
+        cout << "Enter your password to continue:" << endl;
+        string passwordEntry;
+        cin >> passwordEntry;
+        if (admin.checkPassword(passwordEntry)) {
+            loggedIn = true;
+            break;
+        }
+        cout << "Whoops! That wasn't it." << endl;
+    }
+
+    if (loggedIn) {
+        string passwordEntry;
+        cout << "Come up with a new password for " << bobby.getUsername() << endl;
+        cin >> passwordEntry;
+        admin.forceResetPassword(bobby, passwordEntry);
+        cout << "Great job, you've successfully reset " << bobby.getUsername() << "'s password." << endl;
+     } else {
+        cout << "Apparently you're an idiot too. You had one job..." << endl;
+     }
+
 
 
     return 0;
