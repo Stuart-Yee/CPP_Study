@@ -11,6 +11,7 @@ class User {
 
         long int genUserId() {
             //Don't overthink it for now
+            //TODO maybe there can be a class level array of all users
             return 123456;
         }
 
